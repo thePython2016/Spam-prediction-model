@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spam-prediction-model-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: spam-prediction-modeltext
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8501

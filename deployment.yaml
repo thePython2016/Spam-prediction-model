@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spam-prediction-modeltext
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spam-prediction-modeltext
+  template:
+    metadata:
+      labels:
+        app: spam-prediction-modeltext
+    spec:
+      containers:
+      - name: spam-prediction
+        image: spam-prediction-modeltext
+        ports:
+        - containerPort: 8501
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
